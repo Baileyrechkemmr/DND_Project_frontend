@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 //only need props as a param if we are passing in props to this component (we are going to here).
 const Add = (props) => {
@@ -32,7 +32,6 @@ const Add = (props) => {
 					value={npc.age}
 					onChange={handleChange}
 				/>
-				<input type='submit' />
 				<br />
 				<br />
 				<label htmlFor='description'>description: </label>
@@ -42,12 +41,12 @@ const Add = (props) => {
 					value={npc.description}
 					onChange={handleChange}
 				/>
-				<input type='submit' />
+
 				<br />
 				<br />
 				<label htmlFor='job'>job: </label>
 				<input type='text' name='job' value={npc.job} onChange={handleChange} />
-				<input type='submit' />
+
 				<br />
 				<br />
 				<label htmlFor='quirk'>quirk: </label>
@@ -57,7 +56,7 @@ const Add = (props) => {
 					value={npc.quirk}
 					onChange={handleChange}
 				/>
-				<input type='submit' />
+
 				<br />
 				<br />
 				<label htmlFor='race'>race: </label>
@@ -67,7 +66,6 @@ const Add = (props) => {
 					value={npc.race}
 					onChange={handleChange}
 				/>
-				<input type='submit' />
 				<br />
 				<br />
 				<label htmlFor='alignment'>alignment: </label>
@@ -77,6 +75,8 @@ const Add = (props) => {
 					value={npc.alignment}
 					onChange={handleChange}
 				/>
+				<br />
+				<br />
 				<input type='submit' />
 			</form>
 		</>
