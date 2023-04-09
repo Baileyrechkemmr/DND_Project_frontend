@@ -69,7 +69,7 @@ const Register = (props) => {
         // valid date with back end
         try {
 			const response = await axios.post(REGISTER_URL, 
-				JASON.stringify({user, pwd}),
+				JSON.stringify({user, pwd}),
 				{
 					headers: { 'Content-Type': 'application/json' },
 					withCredentials: true
@@ -77,16 +77,17 @@ const Register = (props) => {
 			)
 			console.log(response.data);
 			console.log(response.accessToken);
-			console.log(Json.stringify(response))
+			console.log(JSON.stringify(response))
 			setSuccess(true);
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("no Server Response");
 			} else if (err.response?.status === 409) {
 				setErrMsg("Registration Faild");
-		}
-		errRef.current.focus();
-    }
+			}
+			errRef.current.focus();
+    	}
+	}
 
 	return (
 		<>
@@ -94,9 +95,7 @@ const Register = (props) => {
 				<section>
 					<h1>Success!</h1>
 					<p>
-						<button onClick={() => props.onFormSwitch('login')}>
-							Sign In
-						</button>
+						<button onClick={() => props.onFormSwitch('login')}>Sign In</button>
 					</p>
 				</section>
 			) : (
@@ -213,8 +212,8 @@ const Register = (props) => {
 							Must match the first password input field.
 						</p>
 						{/* is disabled intell all feilds are met */}
-						<button type='submit'
-							
+						<button
+							type='submit'
 							disabled={!validName || !validPwd || !validMatch ? false : true}
 						>
 							Sign UP
@@ -234,5 +233,6 @@ const Register = (props) => {
 		</>
 	)
 }
+
 
 export default Register
