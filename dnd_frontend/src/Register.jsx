@@ -7,10 +7,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from './api/axios'
 
-//                  [upper/lower case][numbers0-9letters a-zA-Z] {between 3 and 23}
+//  hear is the unit test for regex  (https://regex101.com/r/R0vMJ0/1)
+//           [upper/lower case][numbers0-9letters a-zA-Z] {between 3 and 23}
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/
 //                   [upper case][lower case][number between 0-9] [special character] {between 8 and 24}
-const PWD_REGEX = /^(?=.#[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}/
+const PWD_REGEX= /^(?=.#[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}/
 // url for regeter
 const REGISTER_URL = '/' // get from django backend
 const Register = (props) => {
@@ -22,11 +23,11 @@ const Register = (props) => {
 	const [validName, setValidName] = useState(false)
 	const [userFocus, setUserFocus] = useState(false)
 	// password State
-	const [pwd, setPwd] = useState('')
-	const [validPwd, setValidPwd] = useState(false)
-	const [pwdFocus, setPwdFocus] = useState(false)
+	const [password, setPassword] = useState('')
+	const [validPassword, setValidPassword] = useState(false)
+	const [passwordFocus, setPasswordFocus] = useState(false)
 	// match State
-	const [matchPwd, setMatchPwd] = useState('')
+	const [matchPassword, setMatchPassword] = useState('')
 	const [validMatch, setValidMatch] = useState(false)
 	const [matchFocus, setMatchFocus] = useState(false)
 	//  error msg state
@@ -45,23 +46,23 @@ const Register = (props) => {
 	}, [user])
 	// use effect for the password
 	useEffect(() => {
-		const result = PWD_REGEX.test(pwd)
+		const result = PWD_REGEX.test(password)
 		console.log(result)
-		console.log(pwd)
+		console.log(password)
 		setValidName(result)
-		const match = pwd === matchPwd
+		const match = password === matchPassword
 		setValidMatch(match)
-	}, [pwd, matchPwd])
+	}, [password, matchPassword])
 	// use effect for error
 	useEffect(() => {
 		setErrMsg('')
-	}, [user, pwd, matchPwd])
+	}, [user, password, matchPassword])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // prevent java hack
         const v1 = USER_REGEX.test(user);
-        const v2 = PWD_REGEX.test(pwd);
+        const v2 = PWD_REGEX.test(password);
         if (!v1 || !v2) {
             setErrMsg("Invalid entry");
             return;
@@ -69,7 +70,7 @@ const Register = (props) => {
         // valid date with back end
         try {
 			const response = await axios.post(REGISTER_URL, 
-				JSON.stringify({user, pwd}),
+				JSON.stringify({user, password}),
 				{
 					headers: { 'Content-Type': 'application/json' },
 					withCredentials: true
@@ -147,27 +148,27 @@ const Register = (props) => {
 						{/* password feild */}
 
 						<label htmlFor='password'>
-							Password:
-							<span className={validPwd ? 'valid' : 'hide'}>
+							password:
+							<span className={validPassword ? 'valid' : 'hide'}>
 								<FontAwesomeIcon icon={faCheck} />
 							</span>
-							<span className={validPwd || !pwd ? 'hide' : 'invalid'}>
+							<span className={validPassword || !password ? 'hide' : 'invalid'}>
 								<FontAwesomeIcon icon={faTimes} />
 							</span>
 						</label>
 						<input
 							type='text'
 							name='password'
-							onChange={(e) => setPwd(e.target.value)}
+							onChange={(e) => setPassword(e.target.value)}
 							required
-							aria-invalid={validPwd ? 'false' : 'true'}
-							aria-describedby='pwdnote'
-							onFocus={() => setPwdFocus(true)}
-							onBlur={() => setPwdFocus(false)}
+							aria-invalid={validPassword ? 'false' : 'true'}
+							aria-describedby='passwordnote'
+							onFocus={() => setPasswordFocus(true)}
+							onBlur={() => setPasswordFocus(false)}
 						/>
 						<p
-							id='pwdnote'
-							className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}
+							id='passwordnote'
+							className={passwordFocus && !validPassword ? 'instructions' : 'offscreen'}
 						>
 							<FontAwesomeIcon icon={faInfoCircle} />
 							8 to 24 characters.
@@ -184,18 +185,18 @@ const Register = (props) => {
 						</p>
 
 						<label htmlFor='password'>
-							Confirm Password:
-							<span className={validMatch && matchPwd ? 'valid' : 'hide'}>
+							Confirm password:
+							<span className={validMatch && matchPassword ? 'valid' : 'hide'}>
 								<FontAwesomeIcon icon={faCheck} />
 							</span>
-							<span className={validMatch || !matchPwd ? 'hide' : 'invalid'}>
+							<span className={validMatch || !matchPassword ? 'hide' : 'invalid'}>
 								<FontAwesomeIcon icon={faTimes} />
 							</span>
 						</label>
 						<input
 							type='text'
 							id='confirm_password'
-							onChange={(e) => setMatchPwd(e.target.value)}
+							onChange={(e) => setMatchPassword(e.target.value)}
 							required
 							aria-invalid={validMatch ? 'false' : 'true'}
 							aria-describedby='confirmnote'
@@ -214,7 +215,7 @@ const Register = (props) => {
 						{/* is disabled intell all feilds are met */}
 						<button
 							type='submit'
-							disabled={!validName || !validPwd || !validMatch ? false : true}
+							disabled={!validName || !validPassword || !validMatch ? false : true}
 						>
 							Sign UP
 						</button>
