@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+#root{
+  background: url('https://i.imgur.com/kDoW39n.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  max-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.npc{
+  background-color: rgba(128, 128, 128, 0.658);
+  overflow-y: scroll;
+  margin-bottom: 50px;
+  width: 800px;
+  height: 400px;
+  margin-left: 20%;
+  padding-left: 2.8%;
+  padding-top: 3%;
+  padding-right: 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.npcAdd{
+  background-color: rgba(128, 128, 128, 0.552);
+  width: 600px;
+  margin-left: 26%;
+  margin-bottom: 100px;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
