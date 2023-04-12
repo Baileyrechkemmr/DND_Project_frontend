@@ -40,7 +40,7 @@ const App = () => {
 
 	const handleDelete = (event) => {
 		axios
-			.delete('http://localhost:8000/npc/' + event.target.value)
+			.delete(`http://localhost:8000/npc/${event.target.value}`)
 			.then((response) => {
 				getNpc()
 			})
@@ -50,7 +50,7 @@ const App = () => {
 	const handleUpdate = (editNpc) => {
 		console.log(editNpc)
 		axios
-			.put('http://localhost:8000/npc/' + editNpc.id, editNpc)
+			.put(`http://localhost:8000/npc/${editNpc.id}`, editNpc)
 			.then((res) => {
 				getNpc()
 			})

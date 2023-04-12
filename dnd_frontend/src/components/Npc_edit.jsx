@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+
 // css
 // import './css/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,93 +18,98 @@ const Edit = (props) => {
 		quirk: '',
 		race: '',
 		alignment: '',
+		strength:'',
+		constitution: '',
+		intelligence: '',
+		wisdom: '',
+		charisma: '',
+		dnd_class:'',
 	}
 	const [npc, setNpc] = useState(emptyNpc)
 
 	const handleChange = (event) => {
-		setNpc({ ...npc, [event.target.name]: event.target.value })
+		setNpc({ ...props.npc, [event.target.name]: event.target.value })
 	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		props.handleCreate(npc)
+		props.handleUpdate(npc)
 	}
 
 	return (
 		<div className='npcEdit'>
 			<details>
 				<summary>Edit Npc</summary>
-				<form onSubmit={handleSubmit}>
-					<label htmlFor='name'>Name: </label>
-					<input
-						type='text'
-						name='name'
-						value={npc.name}
-						onChange={handleChange}
-					/>
-					<br />
-					<br />
-					<label htmlFor='age'>Age: </label>
-					<input
-						type='number'
-						name='age'
-						value={npc.age}
-						onChange={handleChange}
-					/>
-
-					<br />
-					<br />
-					<label htmlFor='description'>description: </label>
-					<input
-						type='text'
-						name='description'
-						value={npc.description}
-						onChange={handleChange}
-					/>
-
-					<br />
-					<br />
-					<label htmlFor='job'>job: </label>
-					<input
-						type='text'
-						name='job'
-						value={npc.job}
-						onChange={handleChange}
-					/>
-
-					<br />
-					<br />
-					<label htmlFor='quirk'>quirk: </label>
-					<input
-						type='text'
-						name='quirk'
-						value={npc.quirk}
-						onChange={handleChange}
-					/>
-
-					<br />
-					<br />
-					<label htmlFor='race'>race: </label>
-					<input
-						type='text'
-						name='race'
-						value={npc.race}
-						onChange={handleChange}
-					/>
-
-					<br />
-					<br />
-					<label htmlFor='alignment'>alignment: </label>
-					<input
-						type='text'
-						name='alignment'
-						value={npc.alignment}
-						onChange={handleChange}
-					/>
-					<br />
-					<br />
-					<input type='submit' />
-				</form>
+				<Container className='container'>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='name'>Name: </Form.Label>
+							<Form.Control
+								type='text'
+								name='name'
+								value={npc.name}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='age'>Age: </Form.Label>
+							<Form.Control
+								type='number'
+								name='age'
+								value={npc.age}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='description'>description: </Form.Label>
+							<Form.Control
+								type='text'
+								name='description'
+								value={npc.description}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='job'>job: </Form.Label>
+							<Form.Control
+								type='text'
+								name='job'
+								value={npc.job}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='quirk'>quirk: </Form.Label>
+							<Form.Control
+								type='text'
+								name='quirk'
+								value={npc.quirk}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='race'>race: </Form.Label>
+							<Form.Control
+								type='text'
+								name='race'
+								value={npc.race}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Form.Group className='form'>
+							<Form.Label htmlFor='alignment'>alignment: </Form.Label>
+							<Form.Control
+								type='text'
+								name='alignment'
+								value={npc.alignment}
+								onChange={handleChange}
+							/>
+						</Form.Group>
+						<Button className='btn' type='submit'>
+							Submit
+						</Button>
+					</Form>
+				</Container>
 			</details>
 		</div>
 	)
