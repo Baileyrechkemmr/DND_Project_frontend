@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
+// css
+import './css/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+// axios call / components
 import axios from 'axios'
 import Add from './components/Npc_add'
 import Edit from './components/Npc_edit'
+// bootstrap stuff
+import Row from 'react-bootstrap/Row'
+import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 
 const App = () => {
 	let [npc, setNpc] = useState([])
@@ -53,24 +61,48 @@ const App = () => {
 	}, [])
 
 	return (
-		<>
-			<h1>App</h1>
+		<div className='npcPage'>
+			<h1>Npc Tracker</h1>
 			<Add handleCreate={handleCreate} />
 			<div className='npc'>
-				{npc.map((npc) => {
-					return (
-						<div className='npc' key={npc.id}>
-							<h4>Name: {npc.name}</h4>
-							<h5>Age: {npc.age}</h5>
-							<Edit handleUpdate={handleUpdate} npc={npc} />
-							<button onClick={handleDelete} value={npc.id}>
-								delete npc
-							</button>
-						</div>
-					)
-				})}
+				<Row xs={2} md={3}>
+					{npc.map((npc) => {
+						return (
+							
+								<CardGroup>
+									<Card style={{ width: '23rem' }}>
+										<Card.Img variant='top' src='holder.js/100px160' />
+										<Card.Body>
+											<Card.Title>{npc.name}</Card.Title>
+											<Card.Text>
+												Age: {npc.age}
+												<br />
+												quirk: {npc.quirk}
+												<br />
+												race: {npc.race}
+												<br />
+												alignment: {npc.alignment}
+												<br />
+												job: {npc.job}
+												<br />
+												Description: {npc.description}
+											</Card.Text>
+										</Card.Body>
+										<Card.Footer>
+											<Edit handleUpdate={handleUpdate} npc={npc} />
+										</Card.Footer>
+										<Button href=''>Go somewhere</Button>
+										<Button onClick={handleDelete} value={npc.id}>
+											delete npc
+										</Button>
+									</Card>
+								</CardGroup>
+							
+						)
+					})}
+				</Row>
 			</div>
-		</>
+		</div>
 	)
 }
 

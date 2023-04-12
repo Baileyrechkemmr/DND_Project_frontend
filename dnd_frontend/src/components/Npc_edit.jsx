@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+// css
+// import './css/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 //only need props as a param if we are passing in props to this component (we are going to here).
 const Edit = (props) => {
 	let emptyNpc = {
@@ -23,7 +27,7 @@ const Edit = (props) => {
 	}
 
 	return (
-		<>
+		<div className='npcEdit'>
 			<details>
 				<summary>Edit Npc</summary>
 				<form onSubmit={handleSubmit}>
@@ -43,7 +47,7 @@ const Edit = (props) => {
 						value={npc.age}
 						onChange={handleChange}
 					/>
-					<input type='submit' />
+
 					<br />
 					<br />
 					<label htmlFor='description'>description: </label>
@@ -53,7 +57,7 @@ const Edit = (props) => {
 						value={npc.description}
 						onChange={handleChange}
 					/>
-					<input type='submit' />
+
 					<br />
 					<br />
 					<label htmlFor='job'>job: </label>
@@ -63,7 +67,7 @@ const Edit = (props) => {
 						value={npc.job}
 						onChange={handleChange}
 					/>
-					<input type='submit' />
+
 					<br />
 					<br />
 					<label htmlFor='quirk'>quirk: </label>
@@ -73,7 +77,7 @@ const Edit = (props) => {
 						value={npc.quirk}
 						onChange={handleChange}
 					/>
-					<input type='submit' />
+
 					<br />
 					<br />
 					<label htmlFor='race'>race: </label>
@@ -83,7 +87,7 @@ const Edit = (props) => {
 						value={npc.race}
 						onChange={handleChange}
 					/>
-					<input type='submit' />
+
 					<br />
 					<br />
 					<label htmlFor='alignment'>alignment: </label>
@@ -93,10 +97,12 @@ const Edit = (props) => {
 						value={npc.alignment}
 						onChange={handleChange}
 					/>
+					<br />
+					<br />
 					<input type='submit' />
 				</form>
 			</details>
-		</>
+		</div>
 	)
 }
 
