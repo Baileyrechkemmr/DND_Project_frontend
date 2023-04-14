@@ -53,7 +53,7 @@ const Npc = (props) => {
 			.put(`https://dnd-backend-qq19.onrender.com/npc/${editNpc.id}`, editNpc)
 			.then((res) => {
 				getNpc()
-			})
+			}) 
 	}
 
 	useEffect(() => {
