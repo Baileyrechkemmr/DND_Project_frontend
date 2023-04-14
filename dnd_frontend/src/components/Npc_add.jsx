@@ -88,6 +88,7 @@ const Add = (props) => {
 							onChange={handleChange}
 						/>
 					</Form.Group>
+					<br/>
 					<Button className='btn' type='submit'>
 						Submit
 					</Button>
