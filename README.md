@@ -56,7 +56,7 @@
 
 ## Wire Framework/preview 
 
-<details>
+<details close>
 
 | Description | Screenshot |
 |------------ | ------------|
@@ -64,10 +64,6 @@
 | <h3 align="center">Home Page</h3> | <img src="img/Screenshot 2023-04-14 164456.png" width=400 height=500/> |
 | <h3 align="center">NPC Cards</h3> | <img src="img/Screenshot 2023-04-14 164514.png" width=400 height=500/> |
 </details>
-
-<img src="img/Screenshot 2023-04-14 140247.png" width=400 height=500/>
-<img src="img/Screenshot 2023-04-14 164456.png" width=400 height=500/>
-<img src="img/Screenshot 2023-04-14 164514.png" width=400 height=500/>
 
 ## Live link
 
