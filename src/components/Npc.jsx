@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // css
-import './../css/App.css'
+import '../css/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // axios call / components
 import axios from 'axios'
