@@ -44,7 +44,7 @@
 
 ## User stories
 
-<details open>
+<details close>
 <ul>
 <li>As a user I should be able to add an npc without a lot of input options.</li>
 <li>As a user I should be able to edit an npc card or add to it latter </li>
@@ -55,6 +55,15 @@
 </details>
 
 ## Wire Framework/preview 
+
+<details>
+
+| Description | Screenshot |
+|------------ | ------------|
+| <h3 align="center">Preview</h3> | <img src="img/Screenshot 2023-04-14 140247.png" width=400 height=500/> |
+| <h3 align="center">Home Page</h3> | <img src="img/Screenshot 2023-04-14 164456.png" width=400 height=500/> |
+| <h3 align="center">NPC Cards</h3> | <img src="img/Screenshot 2023-04-14 164514.png" width=400 height=500/> |
+</details>
 
 <img src="img/Screenshot 2023-04-14 140247.png" width=400 height=500/>
 <img src="img/Screenshot 2023-04-14 164456.png" width=400 height=500/>
