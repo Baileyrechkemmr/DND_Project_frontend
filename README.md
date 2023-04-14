@@ -73,12 +73,12 @@
 
 ## Stretch goals
 
-- User login {} and authentication {}
-
-- Adding a search filter {}
-
-- Adding ability to save npcs to different campaigns {}
-
-- Create crud for campaigns {}
-
-- Add random npc function that pulls from an api {}
+<details close>
+<ul>
+<li>User login {} and authentication {}</li>
+<li>Adding a search filter {}</li>
+<li>Adding ability to save npcs to different campaigns {}</li>
+<li>Create crud for campaigns {}</li>
+<li>Add random npc function that pulls from an api {}</li>
+</ul>
+</details>
